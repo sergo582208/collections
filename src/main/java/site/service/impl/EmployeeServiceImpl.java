@@ -18,7 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee addEmployee(String firstName, String lastName) {
+    public Employee addEmployee(String firstName, String lastName, Integer salary, Integer department) {
         Employee employee1 = findEmployee(firstName, lastName);
         if (employees != null) {
             throw new EmployeeAlreadyAddedException();

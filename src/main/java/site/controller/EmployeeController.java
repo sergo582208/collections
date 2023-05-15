@@ -13,16 +13,22 @@ import java.util.List;
 @RestController
 @RequestMapping("/employees")
 public class EmployeeController {
-    private final EmployeeService employeeService;
+    private EmployeeService employeeService = null;
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
 
+
     @GetMapping("/add")
-    public Employee addEmployee(@RequestParam String firstName, @RequestParam String lastName) {
-        return employeeService.addEmployee(firstName, lastName);
+    public Employee addEmployee(@RequestParam("firstName") String firstName, @RequestParam("lastName") String lastName, @RequestParam("department")Integer department, @RequestParam("salary")Integer salary) {
+
+        Employee employee = employeeService.addEmployee(firstName, lastName, salary, department);
+        return null;
     }
+
+
+
 
     @GetMapping("/remove")
     public Employee removeEmployee(@RequestParam String firstName, @RequestParam String lastName) {
