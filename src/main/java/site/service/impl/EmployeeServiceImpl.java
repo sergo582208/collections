@@ -30,30 +30,31 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee removeEmployee(String firstName, String lastName) {
-        Employee employee = new Employee(firstName, lastName);
-if(!employees.contains(employee)){
-    throw new EmployeeNotFoundException();
-}
-employees.remove(employee);
+        Employee employee = new Employee("Sara", "Connor", 100000, 1);
+        if (!employees.contains(employee)) {
+            throw new EmployeeNotFoundException();
+        }
+        employees.remove(employee);
 
         return (Employee) employees;
     }
 
 
-        @Override
-        public Employee findEmployee (String firstName, String lastName){
-            Employee findEmployee = new Employee(firstName,lastName);
-            for (Employee employee1: employees) {
-                if(employees.equals(findEmployee)){
-                    return (Employee) employees;
-                }
-                }
-            return null;
+    @Override
+    public Employee findEmployee(String firstName, String lastName) {
+        Employee findEmployee = new Employee("Sara", "Connor", 100000, 1);
+        for (Employee employee1 : employees) {
+            if (employees.equals(findEmployee)) {
+                return (Employee) employees;
+            }
         }
+        return null;
+    }
 
     @Override
     public List<Employee> getAllEmployees() {
         return employees;
+
     }
 }
 
